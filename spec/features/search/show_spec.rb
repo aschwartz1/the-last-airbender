@@ -44,14 +44,17 @@ RSpec.describe 'Search by nation page' do
         end
       end
 
-      xit 'shows `none` for allies/enemies if there are none' do
-        # TODO find a person w/ those and make capybara select their .person element?
+      it 'shows `none` for allies/enemies if there are none' do
+        visit search_path(nation: 'fire_nation')
+        # How to find the .person where this is true?
+        # Generally, we're looking for a css .person which contains the content 'Ember Island Players'
+        #   IDK how to do that, and IDK if it would be safe enough to rely on anyway
       end
 
       it 'photos for people when it can' do
         visit search_path(nation: 'fire_nation')
-        photos = page.all(:css, '.person-photo')
 
+        photos = page.all(:css, '.person-photo')
         # Not sure how to test for a photo actually existing?
         expect(photos.size).to eq(24)
       end
