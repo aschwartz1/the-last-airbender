@@ -15,6 +15,14 @@ RSpec.describe 'Search by nation page' do
           expect(page).to have_content(97)
         end
       end
+
+      it 'shows info for 25 members of nation' do
+        visit search_path(nation: 'fire_nation')
+
+        within('#people-info') do
+          expect(page.all('.person').size).to eq(25)
+        end
+      end
     end
   end
 

@@ -1,5 +1,12 @@
 <h1>Search Results</h1>
 
 <div id='population'>
-  <p>Population: <%= @nation_info.size %></p>
+  <p>Population: <%= @total_population %></p>
+</div>
+
+<div id='people-info'>
+  <%= @nation_info.each do |info| %>
+    <ul class='person'>
+    </ul>
+  <% end %>
 </div>

@@ -1,6 +1,8 @@
 class SearchController < ApplicationController
   def index
-    @nation_info = fetch_nation_info(format_query_param(nation_param))
+    all_info = fetch_nation_info(format_query_param(nation_param))
+    @total_population = all_info.count
+    @nation_info = all_info[0..24]
   end
 
   private
