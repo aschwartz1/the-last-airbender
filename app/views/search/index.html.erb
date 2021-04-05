@@ -5,8 +5,15 @@
 </div>
 
 <div id='people-info'>
-  <%= @nation_info.each do |info| %>
+  <% @nation_info.each do |info| %>
+    <% if info[:photoUrl] %>
+      <%= image_tag(info[:photoUrl], class: "person-photo") %>
+    <% end %>
     <ul class='person'>
+      <li>Name: <%= info[:name] %></li>
+      <li>Allies: <%= info[:allies].to_sentence %></li>
+      <li>Enemies: <%= info[:enemies].to_sentence %></li>
+      <li>Affiliation: <%= info[:affiliation] %></li>
     </ul>
   <% end %>
 </div>
